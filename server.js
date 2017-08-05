@@ -19,12 +19,22 @@ io.sockets.on('connection', function(socket){
 	socket.on('new user', function(data, callback){
 		if(nicknames.indexOf(data) != -1){
 			callback(false);
+		} else {
+			callback(true);
+			socket.nickname = data;
+			nicknames.push(socket.nickname);
+			io.sockets.emit('username', nicknames);
 		}
 	});
 
 	socket.on('send message', function(data){
-		io.sockets.emit('new message', data);
+		io.sockets.emit('new message', { msg : data, nick : socket.nickname });
 		//socket.broadcast.emit('new message', data);
+	});
 
+	socket.on('disconnect', function(data){
+		if(!socket.nickname) return;
+		nicknames.splice(nicknames.indexOf(socket.nickname),1);
+		io.sockets.emit('username', nicknames);
 	});
 });

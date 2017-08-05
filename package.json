@@ -1,5 +1,5 @@
 {
-  "name": "chat-application",
+  "name": "node-chat-application",
   "version": "1.0.0",
   "description": "A simple chat app with nodejs and socket.io",
   "main": "server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rupachowrasia/chat-application.git"
+    "url": "git+https://github.com/rupachowrasia/node-chat-application.git"
   },
   "keywords": [
     "chat"
@@ -17,12 +17,12 @@
   "author": "Rupa",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rupachowrasia/chat-application/issues"
+    "url": "https://github.com/rupachowrasia/node-chat-application/issues"
   },
-  "homepage": "https://github.com/rupachowrasia/chat-application#readme",
+  "homepage": "https://github.com/rupachowrasia/node-chat-application#readme",
   "dependencies": {
     "express": "^4.15.3",
-    "socket.io": "^2.0.2"
+    "socket.io": "^2.0.3"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
