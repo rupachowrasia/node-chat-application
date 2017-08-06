@@ -89,13 +89,23 @@
 				$messageBox.val('');
 			});
 
+			socket.on('load old msgs', function(docs){
+				for(var i = 0; i < docs.length; i++){
+					displayChat(docs[i]);
+				}
+			});
+
 			socket.on('new message', function(data){
-				$chat.append('<span class="msg"><b>' + data.nick + '</b>:' + data.msg + '<span><br>');
+				displayChat(data);
 			});
 
 			socket.on('whisper', function(data){
-				$chat.append('<span class="whisper"><b>' + data.nick + '</b>:' + data.msg + '<span><br>');
+				$chat.append('<span class="whisper"><b>' + data.nickname + '</b>:' + data.msg + '<span><br>');
 			});
+
+			function displayChat(data){
+				return $chat.append('<span class="msg"><b>' + data.nickname + '</b>:' + data.msg + '<span><br>');
+			}
 
 		});
 	</script>
